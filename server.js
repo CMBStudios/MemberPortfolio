@@ -10,9 +10,7 @@ const dbname = "cmb-studio";
 const dbcollection = "userlist"
 app.use(cors());
 app.use(express.static(__dirname + '/build'));
-app.get('*', (req, res) => {
-  res.sendFile(__dirname + '/build/index.html');
-});
+
 
 function getDateTime() {
 
@@ -75,7 +73,9 @@ app.get("/insertdata", function (req, res) {
   });
 });
 
-
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/build/index.html');
+});
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
