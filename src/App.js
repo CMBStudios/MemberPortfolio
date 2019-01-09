@@ -10,7 +10,7 @@ import resumeData from './resumeData';
 class App extends Component {
 
   componentDidMount() {
-    fetch("http://localhost:3001/insertdata")
+    fetch("/insertdata")
        .then(console.log('successed'));
   }
 
