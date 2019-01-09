@@ -9,12 +9,10 @@ const mongoURL = "mongodb://cmb:portfolio2019@ds117759.mlab.com:17759/cmb-studio
 const dbname = "cmb-studio";
 const dbcollection = "userlist"
 app.use(cors());
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   res.header('Access-Control-Allow-Credentials', false);
-//   next();
-// });
+app.use(express.static(__dirname + '/build'));
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/build/index.html');
+});
 
 function getDateTime() {
 
